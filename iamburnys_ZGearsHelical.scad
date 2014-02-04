@@ -1,11 +1,11 @@
 $fn=200;
-include <gear.scad>; 
+include <MCAD/involute_gears.scad>; 
 include <MCAD/regular_shapes.scad>;
 
 //10.95 = radius;
 
 dia = 21.9;
-gap = 10;
+gap = 0;
 
 teeth=13;
 circles=0;
@@ -88,15 +88,42 @@ gear (number_of_teeth=teeth,
 	involute_facets=6);
 }
 
+bevcon = 19.4;
+
 difference() {
 	Lgear();
+	difference() {  //top bevel
+		cylinder(10,bevcon,9.4);
+		cylinder(8,bevcon-2,9.4);
+		cylinder(15,8,8);
+	}
+	mirror([0,0,180]) 
+	difference() { //bottom bevel
+		cylinder(bevcon,bevcon,0);
+		cylinder(bevcon-2,bevcon-2,0);
+	}
 	translate([0,0, height-4]) cylinder(5.1,5.1,5.3); //bearing hole
 	translate([0,0, -(height/2)-.1]) hexagon_prism(4.1,4.7); //Nut Trap hole
 	translate([0,0,-(height/2)+3.9]) cylinder(4,4,3); 
 }
 
-union() {
-	Rgear();
-	translate([dia+gap-3,-3,-(height/2) ]) cube([.7,6,height]);
-}
+/*
+difference() {
+	union() {
+		Rgear();
+		translate([dia+gap-3,-3,-(height/2) ]) cube([.7,6,height]);
+	}
+	translate([dia,0,0])
+	difference() {  //top bevel
+		cylinder(bevcon,bevcon,0);
+		cylinder(bevcon-2,bevcon-2,0);
 
+	}
+	translate([dia,0,0])
+	mirror([0,0,180]) 
+	difference() { //bottom bevel
+		cylinder(bevcon,bevcon,0);
+		cylinder(bevcon-2,bevcon-2,0);
+	}
+}
+*/
