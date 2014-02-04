@@ -1,5 +1,5 @@
 $fn=200;
-include <gear.scad>; 
+include <MCAD/involute_gears.scad>; 
 include <MCAD/regular_shapes.scad>;
 
 gap = 29.884; //distance between centres of gears 
@@ -89,7 +89,7 @@ gear (number_of_teeth=teeth,
 	involute_facets=6);
 }
 
-/*
+
 difference() {
 	bigGear();
 	translate([0,0, (height/2)-5.1]) hexagon_prism(5.2,3.1); //Nut Trap hole
@@ -105,7 +105,7 @@ difference() {
 	}
 	
 }
-*/
+
 
 difference() {
 	union() {
