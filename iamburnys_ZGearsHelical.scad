@@ -107,7 +107,7 @@ difference() {
 	translate([0,0,-(height/2)+3.9]) cylinder(4,4,3); 
 }
 
-/*
+
 difference() {
 	union() {
 		Rgear();
@@ -126,4 +126,3 @@ difference() {
 		cylinder(bevcon-2,bevcon-2,0);
 	}
 }
-*/
