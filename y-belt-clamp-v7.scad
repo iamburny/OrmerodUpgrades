@@ -26,7 +26,7 @@ module backPlate(holeRad=2) {
 	difference() { 
 		union() {
 		hull() {
-			translate([thick,0,0]) cube([21,thick,h]);
+			translate([thick,0,0]) cube([18,thick,h]);
 			translate([1.5,1.5,0]) cylinder(h,1.5,1.5);
 		}
 		hull() {
