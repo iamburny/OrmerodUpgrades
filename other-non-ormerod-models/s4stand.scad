@@ -3,10 +3,6 @@ include <MCAD/regular_shapes.scad>;
 slot = 9;
 angle = -17;
 
-
-
-		
-
 difference() {
 	
 	union() {
