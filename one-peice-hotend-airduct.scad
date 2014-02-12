@@ -85,7 +85,7 @@ difference() {
 	translate([wall-1,wall-1,z-2]) cube([x-(wall), x, 20]); //heatsink recess
 	
 	for(xp = [0:1]) { //4 x screw holes
-		for(yp = [0:1]) {
+		for(yp = [1:1]) { // dont need 4 screw holes so changed [0:1] to [1:1]
 			//hull() { //hull to make slots
 			translate([((x-sc)/2) + (xp*sc),((x-sc)/2) + (yp*sc),-.1]) cylinder(3,1.6,1.6);
 			//translate([((x-sc)/2) + (xp*sc),((x-sc)/2) + (yp*sc)+2,-.1]) cylinder(3,1.5,1.5);
