@@ -1,4 +1,4 @@
-$fn=200;
+$fn=40;
 thick=3;
 btmHole=5;
 topHole=17;
