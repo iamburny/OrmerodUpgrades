@@ -23,7 +23,7 @@ module original() {
 	}
 }
 
-translate([0,0,4]) rotate([0,90,0]) {
+translate([0,0,0]) rotate([0,0,0]) {
 
 difference() {
 	union() {
@@ -31,10 +31,10 @@ difference() {
 			translate([0,14,0]) cylinder(4,4,4);
 			translate([-4,4,0]) cube([8,8,4]);
 		}
-		translate([-4,7.6,4])  cube([8,3,7.6]);
+		//translate([-4,7.6,4])  cube([8,3,7.6]);
 	}
 	translate([0,14,0])  cylinder(4,2,2);
-	translate([-4.5,7.5,4.3]) rotate([0,90,0]) cylinder(9,.7,.7);
+	//translate([-4.5,7.5,4.3]) rotate([0,90,0]) cylinder(9,.7,.7);
 }
 
 
@@ -50,10 +50,12 @@ difference() {
 }
 
 
+/*
 difference() {
 	translate([-4,-4,11.5])  cube([8,14.6,2.5]);
 	translate([0,0,11.5])  cylinder(4,2.6,2.6);
 	translate([-2,-4,11]) cube([4,4,4]);
 	translate([0,-4,11])  cylinder(4,2.6,2.6);
 }
+*/
 }
