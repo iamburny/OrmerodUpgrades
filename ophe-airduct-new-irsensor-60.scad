@@ -60,9 +60,6 @@ difference() {
 	translate([x/2,(y/2),-.1]) cylinder(5,hole/2,hole/2); //fan hole
 	translate([wall,wall,2]) heatsink();
 
-	translate([0,-6,-1]) rotate([0,0,45]) cube([5,5,z+2]); // top bevel
-	translate([x,-6,-1]) rotate([0,0,45]) cube([5,5,z+2]); //top bevel
-
 }
 
 /*/*Cable Traps
