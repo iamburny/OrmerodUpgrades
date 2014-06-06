@@ -2,7 +2,7 @@ $fs=0.8; // def 1, 0.2 is high res
 $fa=4;//def 12, 3 is very nice
 %translate([0,0,-0.5])cube([200,200,1],center=true); //build platform
 
-color("red") translate([-38,-171.5,-20.451]) import("z-bearing-clamp.stl");  
+//color("red") translate([-38,-171.5,-20.451]) import("z-bearing-clamp.stl");  
 
 fh = 15;
 
@@ -19,17 +19,15 @@ module flange() {
 module uBracket() {
 	difference() {
 		union() {
-			translate([5,0,0]) cube([5,21,10]); // U body
-			rotate([90,0,0]) translate([5,5,-21]) cylinder(21,5,5);
-			translate([10,5,0]) cube([5,11,10]); // U radius infill
-			translate([10,5,0]) cylinder(10,5,5); // U radius
-			translate([10,16,0]) cylinder(10,5,5);
-			translate([10,12,0]) cube([40,5,10]); //arm
-			rotate([90,0,0]) translate([50,5,-17]) cylinder(5,5,5); // arm end radius
+			translate([5,0,0]) cube([10,30,10]); // U body
+			rotate([90,0,0]) translate([5,5,-30]) cylinder(30,5,5); //U screw holes outer rad
+			translate([12.5,25,0]) cube([37.5,5,10]); //arm
+			rotate([90,0,0]) translate([50,5,-30]) cylinder(5,5,5); // arm end radius
 		}
-		translate([0,3,-1]) cube([10,15,12]); //U cut out
-		translate([4.6,22,5]) rotate([90,0,0]) cylinder(23,1.6,1.7); //U screw holes
-		rotate([90,0,0]) translate([50,5,-18]) cylinder(7,1.7,1.7); // arm pin hole
+		translate([-.5,3,-1]) cube([11,15,12]);
+		translate([-.5,21.5,-1]) cube([11,15,12]); //U cut out
+		translate([4.6,31,5]) rotate([90,0,0]) cylinder(32,1.6,1.7); //U screw holes
+		rotate([90,0,0]) translate([50,5,-31]) cylinder(7,1.7,1.7); // arm pin hole
 	}
 }
 
