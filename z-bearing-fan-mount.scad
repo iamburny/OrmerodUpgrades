@@ -63,4 +63,4 @@ color("red") flange();
 
 color("blue") rotate([90,0,90]) translate([16,-3,-5]) uBracket();
 
-color("green") rotate([90,0,90]) translate([66,4,-5]) fanMount();
+color("green") rotate([90,0,90]) translate([66,17,-5]) fanMount();
