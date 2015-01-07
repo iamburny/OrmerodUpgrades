@@ -1,20 +1,37 @@
-// Planetary gear bearing (customizable)
+include <MCAD\text_on.scad>
+
+// Planetary gear bearing (customizable with text)
+
+//text
+text="Matts";
+
+//Font
+font="Racing Sans One";
+
+//Text size
+t_size=5;
 
 // outer diameter of ring
-D=51.7;
+D=30;
+
 // thickness
-T=15;
+T=8;
+
 // clearance
-tol=0.65;
+tol=0.50;
+
 number_of_planets=5;
 number_of_teeth_on_planets=7;
 approximate_number_of_teeth_on_sun=9;
+
 // pressure angle
 P=45;//[30:60]
+
 // number of teeth to twist across
 nTwist=1;
+
 // width of hexagonal hole
-w=6.7;
+w=3;
 
 DR=0.5*1;// maximum depth ratio of teeth
 
@@ -33,14 +50,14 @@ helix_angle=atan(2*nTwist*pitch/T);
 echo(helix_angle);
 
 phi=$t*360/m;
-
 translate([0,0,T/2]){
 	difference(){
 		cylinder(r=D/2,h=T,center=true,$fn=100);
 		herringbone(nr,pitch,P,DR,-tol,helix_angle,T+0.2);
 		difference(){
-			translate([0,-D/2,0])rotate([90,0,0])monogram(h=10);
-			cylinder(r=D/2-0.25,h=T+2,center=true,$fn=100);
+			//-----------------------------------------------------------
+			text_on_cylinder(text,[0,0,0], r1=D/2, r2=D/2, h=T/10-t_size, size=t_size, font=font);
+			//-----------------------------------------------------------
 		}
 	}
 	rotate([0,0,(np+1)*180/ns+phi*(ns+np)*2/ns])
@@ -73,11 +90,16 @@ flat_extrude(h=gear_thickness,flat=flat)translate([0,-clearance*cos(pressure_ang
 	}
 }
 
-module monogram(h=2) {
-translate([0,0,-h/2]) linear_extrude(height=h);
-	//text("Matt", font = "Racing Sans One", size = 6, halign = "center", valign = "center");
+module monogram(h=1)
+linear_extrude(height=h,center=true)
+translate(-[3,2.5])union(){
+	difference(){
+		square([4,5]);
+		translate([1,1])square([2,3]);
+	}
+	square([6,1]);
+	translate([0,2])square([2,1]);
 }
-
 
 module herringbone(
 	number_of_teeth=15,
@@ -212,3 +234,4 @@ function involute (base_radius, involute_angle) =
 	base_radius*(cos (involute_angle) + involute_angle*PI/180*sin (involute_angle)),
 	base_radius*(sin (involute_angle) - involute_angle*PI/180*cos (involute_angle))
 ];
+
