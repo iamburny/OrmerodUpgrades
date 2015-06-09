@@ -3,7 +3,7 @@ $fn=50;
 rad=6;
 len=2;
 h=20;
-wall=0.15;
+wall=0.4;
 
 
 //box
